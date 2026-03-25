@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ui/theme-provider";
+import { AuthProvider } from "@/components/ui/AuthProvider";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -20,6 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <AuthProvider>
     <html
       lang="en"
       className={`${poppins.className} h-full antialiased`}
@@ -36,5 +38,6 @@ export default function RootLayout({
         </ThemeProvider>
         </body>
     </html>
+    </AuthProvider>
   );
 }
